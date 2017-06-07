@@ -14,6 +14,9 @@ def getWitResponse(message_text):
 	return response
 
 print(sys.version)
-statement = input('Ask for something: ')
-response = getWitResponse(statement)
-print(response)
+
+while True:
+	statement = input('Ask for something: ')
+	response = getWitResponse(statement)
+	print(json.dumps(response,indent=2))
+	print('--------------------------------------------------------------------------------------')
