@@ -105,15 +105,13 @@ client = Wit(witAccessToken)
 
 print(sys.version)
 
-anInput = 'what are the terms, description, and premium of policy number 2341 and account number is greater than 4241 and premium is 80'
-response = getWitResponse(anInput)
-# while True:
-# 	#statement = input('Ask for something: ')
-# 	#response = getWitResponse(statement)
+#anInput = 'what are the terms, description, and premium of policy number 2341 and account number is greater than 4241 and premium is 80'
+#response = getWitResponse(anInput)
 
-# 	#print(json.dumps(response,indent=2))
-# 	print('--------------------------------------------------------------------------------------')
-# # what are the terms, description, and premium of policy number 2341 and account number is greater than 4241
+while True:
+	statement = input('Ask for something: ')
+	response = getWitResponse(statement)
 
-
-
+	#print(json.dumps(response,indent=2))
+	print('--------------------------------------------------------------------------------------')
+# what are the terms, description, and premium of policy number 2341 and account number is greater than 4241
