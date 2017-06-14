@@ -56,7 +56,7 @@ def formWhere(response):
 				fieldString = evaluate[index1]['entities'][element][0]['value']
 			if element == "comparison":
 				comparisonString = evaluate[index1]['entities'][element][0]['value']
-		if comparisonString == "":
+		if comparisonString == "" or comparisonString == "equal":
 			comparisonString = "="
 		elif comparisonString == "greaterThan":
 			comparisonString = ">"
@@ -71,32 +71,6 @@ def formWhere(response):
 	finalWhereString = "WHERE" + finalWhereString + " " + wheres[index+1]
 	print(finalWhereString)
 	return finalWhereString
-
-def formAndOr(response):
-	andOr = response['entities']['andOr']
-
-	textSent = response['_text'] 
-	evaluateTexts = []
-	andOrs = []
-
-	for index, item in enumerate(response['entities']['evaluate']):
-		evaluateText = response['entities']['evaluate'][index]['value']
-		evaluateTexts.append(evaluateText)
-
-	for index, item in enumerate(response['entities']['andOr']):
-		andOrString = response['entities']['andOr'][index]['value']
-		andOrs.append(andOrString)
-	print(andOrs)
-
-	print(evaluateTexts[0])
-	print(textSent)
-	pattern = ""
-	for element in evaluateTexts:
-		pattern = pattern + ".*" + element
-	pattern = pattern[2:]
-	print(pattern)
-	newText = re.search(pattern,textSent).group(0)
-	print(newText)
 
 witAccessToken = os.environ.get('witAccessToken')
 print(witAccessToken)
